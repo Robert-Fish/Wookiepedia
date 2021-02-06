@@ -8,6 +8,7 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -17,6 +18,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {
   Header,
@@ -30,7 +32,7 @@ declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
-    <>
+    <NavigationContainer>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -46,8 +48,8 @@ const App = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-                screen and then come back to see your edits.
+                Edit <Text style={styles.highlight}>App.tsx</Text> to change
+                this screen and then come back to see your edits.
               </Text>
             </View>
             <View style={styles.sectionContainer}>
@@ -72,7 +74,7 @@ const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </NavigationContainer>
   );
 };
 
