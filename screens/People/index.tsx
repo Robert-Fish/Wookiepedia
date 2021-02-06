@@ -1,28 +1,25 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import {useSelector} from 'react-redux';
-import {SafeAreaView} from 'react-native';
-import Heading from '../../ui/Typography/Heading';
-import Container from '../../ui/Layout/Container';
-import {ListItem, ListItemText} from '../../ui/Layout/ListItem';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import PeopleList from './PeopleList';
 
-export default function People() {
-  const {people} = useSelector((state) => state.people);
+const Stack = createStackNavigator();
 
+export default function PeopleEntry() {
   return (
-    <SafeAreaView>
-      <Container>
-        <Heading>People</Heading>
-        <FlatList
-          data={people}
-          renderItem={(item) => (
-            <ListItem>
-              <ListItemText>{item.item.name}</ListItemText>
-            </ListItem>
-          )}
-          keyExtractor={(item) => item.name}
+    <NavigationContainer independent>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="PeopleList"
+          component={PeopleList}
+          options={{
+            headerShown: false,
+            cardStyle: {
+              backgroundColor: '#fff',
+            },
+          }}
         />
-      </Container>
-    </SafeAreaView>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

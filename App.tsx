@@ -14,7 +14,7 @@ import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import People from './screens/People';
+import PeopleEntry from './screens/People';
 
 const theme = {
   main: '#2E2B3C',
@@ -30,7 +30,7 @@ const App = () => {
         <Drawer.Navigator
           initialRouteName="People"
           drawerStyle={{backgroundColor: theme.main}}>
-          <Drawer.Screen name="People" component={People} />
+          <Drawer.Screen name="People" component={PeopleEntry} />
         </Drawer.Navigator>
       </NavigationContainer>
     </ThemeProvider>
