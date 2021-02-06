@@ -1,13 +1,14 @@
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Heading from '../../ui/Typography/Heading';
+import Container from '../../ui/Layout/Container';
 
 export default function People() {
   return (
     <SafeAreaView>
-      <View>
+      <Container>
         <Heading>People</Heading>
-      </View>
+      </Container>
     </SafeAreaView>
   );
 }

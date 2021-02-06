@@ -10,42 +10,28 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {View, Button} from 'react-native';
+import {ThemeProvider} from 'styled-components';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import People from './screens/People';
 
-declare const global: {HermesInternal: null | {}};
-
-function HomeScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
-
-function NotificationsScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
+const theme = {
+  main: '#2E2B3C',
+};
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="People">
-        <Drawer.Screen name="People" component={People} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <ThemeProvider theme={theme}>
+      <NavigationContainer>
+        <Drawer.Navigator
+          initialRouteName="People"
+          drawerStyle={{backgroundColor: theme.main}}>
+          <Drawer.Screen name="People" component={People} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 
