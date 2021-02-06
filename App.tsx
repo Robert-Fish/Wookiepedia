@@ -27,9 +27,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="dark-content" />
       <NavigationContainer>
-        <Drawer.Navigator
-          initialRouteName="People"
-          drawerStyle={{backgroundColor: theme.main}}>
+        <Drawer.Navigator initialRouteName="People">
           <Drawer.Screen name="People" component={PeopleEntry} />
         </Drawer.Navigator>
       </NavigationContainer>
