@@ -10,6 +10,7 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
+import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -24,6 +25,7 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar barStyle="dark-content" />
       <NavigationContainer>
         <Drawer.Navigator
           initialRouteName="People"
