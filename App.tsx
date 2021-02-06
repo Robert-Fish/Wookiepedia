@@ -13,6 +13,7 @@ import React from 'react';
 import {View, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import People from './screens/People';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -40,8 +41,8 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Navigator initialRouteName="People">
+        <Drawer.Screen name="People" component={People} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
