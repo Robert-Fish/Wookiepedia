@@ -9,7 +9,7 @@ import {name as appName} from './app.json';
 import {Provider} from 'react-redux';
 import configureStore from './store';
 
-const store = configureStore();
+const store = configureStore;
 
 const WrappedApp = () => (
   <Provider store={store}>

@@ -1,7 +1,11 @@
-import styled from 'styled-components/native';
+import React from 'react';
+import {TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const BackButton = styled.Button`
-  color: black;
-`;
+const BackButton = ({navigation}) => (
+  <TouchableOpacity onPress={() => navigation.pop()}>
+    <Icon name="chevron-left" size={25} />
+  </TouchableOpacity>
+);
 
 export default BackButton;

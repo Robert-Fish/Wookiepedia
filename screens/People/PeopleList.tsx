@@ -13,7 +13,7 @@ export default function PeopleList({navigation}) {
   return (
     <SafeAreaView>
       <Container>
-        <Heading>People</Heading>
+        <Heading isBold>People</Heading>
         <FlatList
           data={people}
           renderItem={(item) => (

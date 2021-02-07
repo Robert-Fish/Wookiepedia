@@ -16,7 +16,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import PeopleEntry from './screens/People';
 
-const theme = {
+export const theme = {
   main: '#2E2B3C',
 };
 
