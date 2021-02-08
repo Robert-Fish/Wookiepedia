@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import PeopleList from './PeopleList';
-import PeopleDetail from './PeopleDetail';
+import {useDispatch} from 'react-redux';
+import SpeciesList from './SpeciesList';
+import {getSpecies} from '../../actions/speciesActions';
+import SpeciesDetail from './SpeciesDetail';
 
 const Stack = createStackNavigator();
 
-export default function PeopleEntry() {
+export default function SpeciesEntry() {
   return (
     <NavigationContainer independent>
       <Stack.Navigator>
         <Stack.Screen
-          name="PeopleList"
-          component={PeopleList}
+          name="SpeciesList"
+          component={SpeciesList}
           options={{
             headerShown: false,
             cardStyle: {
@@ -21,8 +23,8 @@ export default function PeopleEntry() {
           }}
         />
         <Stack.Screen
-          name="PeopleDetail"
-          component={PeopleDetail}
+          name="SpeciesDetail"
+          component={SpeciesDetail}
           options={{
             headerShown: false,
             cardStyle: {

@@ -1,26 +1,25 @@
-import {GET_PEOPLE_SUCCESS, GET_PEOPLE_FAILURE} from '../actions/types';
+import {GET_SPECIES_FAILURE, GET_SPECIES_SUCCESS} from '../actions/types';
 
 const initialState = {
-  people: [],
+  species: [],
   loading: true,
   error: '',
 };
 
-const peopleReducer = (state = initialState, action) => {
+const speciesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PEOPLE_SUCCESS:
+    case GET_SPECIES_SUCCESS:
       return {
         ...state,
-        people: action.payload,
+        species: action.payload,
         loading: false,
       };
-    case GET_PEOPLE_FAILURE:
+    case GET_SPECIES_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-
     default:
       return {
         ...state,
@@ -28,4 +27,4 @@ const peopleReducer = (state = initialState, action) => {
   }
 };
 
-export default peopleReducer;
+export default speciesReducer;

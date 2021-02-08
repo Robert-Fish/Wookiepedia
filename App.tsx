@@ -15,6 +15,7 @@ import {ThemeProvider} from 'styled-components';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import PeopleEntry from './screens/People';
+import SpeciesEntry from './screens/Species';
 
 export const theme = {
   main: '#2E2B3C',
@@ -29,6 +30,7 @@ const App = () => {
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="People">
           <Drawer.Screen name="People" component={PeopleEntry} />
+          <Drawer.Screen name="Species" component={SpeciesEntry} />
         </Drawer.Navigator>
       </NavigationContainer>
     </ThemeProvider>

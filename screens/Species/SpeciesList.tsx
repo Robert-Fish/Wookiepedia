@@ -5,31 +5,31 @@ import {SafeAreaView} from 'react-native';
 import Heading from '../../ui/Typography/Heading';
 import Container from '../../ui/Layout/Container';
 import {ListItem, ListItemText} from '../../ui/Layout/ListItem';
-import peopleReducer from '../../reducers/peopleReducer';
-import {getPeople} from '../../actions/peopleActions';
+import speciesReducer from '../../reducers/speciesReducer';
+import {getSpecies} from '../../actions/speciesActions';
 
-export default function PeopleList({navigation}) {
+export default function SpeciesList({navigation}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPeople());
+    dispatch(getSpecies());
   }, [dispatch]);
 
-  const {people, loading} = useSelector((state: RootState) => state.people);
+  const {species, loading} = useSelector((state: RootState) => state.species);
 
   return (
     <SafeAreaView>
       <Container>
-        <Heading isBold>People</Heading>
+        <Heading isBold>Species</Heading>
         {loading ? (
           <ActivityIndicator size="large" />
         ) : (
           <FlatList
-            data={people}
+            data={species}
             renderItem={(item) => (
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate('PeopleDetail', {
+                  navigation.navigate('SpeciesDetail', {
                     ...item.item,
                   })
                 }>
@@ -46,4 +46,4 @@ export default function PeopleList({navigation}) {
   );
 }
 
-export type RootState = ReturnType<typeof peopleReducer>;
+export type RootState = ReturnType<typeof speciesReducer>;

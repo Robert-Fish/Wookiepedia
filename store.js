@@ -2,9 +2,11 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import peopleReducer from './reducers/peopleReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
+import speciesReducer from './reducers/speciesReducer';
 
 const rootReducer = combineReducers({
   people: peopleReducer,
+  species: speciesReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -16,11 +18,11 @@ const composeSetup =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
-const configureStore = createStore(
+const store = createStore(
   rootReducer,
   composeSetup(applyMiddleware(sagaMiddleware)),
 );
 
 sagaMiddleware.run(rootSaga);
 
-export default configureStore;
+export default store;
